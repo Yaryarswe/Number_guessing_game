@@ -1,0 +1,43 @@
+import random
+
+print("Welcome to the Number Guessing Game")
+print("I'm thinking of a number between 1 and 100.")
+game_over = False
+
+
+
+easy_or_hard = input("Type (E) for easy mode or (H) for hard mode.")
+if easy_or_hard =="E":
+    print("EASY MODE")
+    lives = 10
+elif easy_or_hard =="H":
+    print("HARD MODE")
+    lives = 5
+else:
+    exit()
+
+number = random.randint(1, 100)
+
+
+while game_over == False:
+    if lives <= 0:
+        print("You have 0 lives left.\n---GAME OVER---")
+        game_over = True
+        
+    else:
+        game_over = False    
+    
+    
+    
+    
+    print(f"---{lives} lives left---")
+    guessed_number = int(input("GUESS A NUMBER"))
+    if guessed_number == number:
+        print(f"Well done, you guessed the number!! The number was {number}")
+        game_over = True
+    elif guessed_number < number:
+        print("Too low. \nGuess again.")
+        lives += -1
+    elif guessed_number > number:
+        print("Too high.\nGuess again.")
+        lives += -1
